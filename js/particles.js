@@ -1,4 +1,4 @@
-// Configuración de la animación de partículas
+// Configuración de la animación de partículas - Patrón de líneas y nodos conectados
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -14,27 +14,27 @@ window.addEventListener('resize', resizeCanvas);
 
 // Variables de configuración
 const particles = [];
-const particleCount = 60;
-const connectionDistance = 150;
+const particleCount = 40;
+const connectionDistance = 200;
 
 // Clase de partícula
 class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 1.5;
-        this.vy = (Math.random() - 0.5) * 1.5;
-        this.radius = Math.random() * 2 + 1;
-        this.opacity = Math.random() * 0.5 + 0.3;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.radius = Math.random() * 1.5 + 0.5;
         
-        // Alternancia entre colores dorado y azul
-        this.color = Math.random() > 0.5 ? 'rgba(201, 169, 97' : 'rgba(0, 212, 255';
+        // Colores: dorado y azul eléctrico
+        this.colorType = Math.random() > 0.6 ? 'gold' : 'blue';
+        this.opacity = Math.random() * 0.6 + 0.4;
         this.originalOpacity = this.opacity;
         this.pulsePhase = Math.random() * Math.PI * 2;
     }
 
     update() {
-        // Movimiento
+        // Movimiento lento y suave
         this.x += this.vx;
         this.y += this.vy;
 
@@ -50,23 +50,31 @@ class Particle {
         }
 
         // Efecto de pulsación
-        this.pulsePhase += 0.02;
-        const pulse = Math.sin(this.pulsePhase) * 0.3 + 0.7;
+        this.pulsePhase += 0.01;
+        const pulse = Math.sin(this.pulsePhase) * 0.2 + 0.8;
         this.opacity = this.originalOpacity * pulse;
     }
 
     draw() {
-        ctx.fillStyle = this.color + ', ' + this.opacity + ')';
+        // Color del nodo
+        const color = this.colorType === 'gold' ? '#c9a961' : '#00d4ff';
+        
+        // Dibujar nodo
+        ctx.fillStyle = color;
+        ctx.globalAlpha = this.opacity;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fill();
 
         // Glow effect
-        ctx.strokeStyle = this.color + ', ' + (this.opacity * 0.5) + ')';
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 0.5;
+        ctx.globalAlpha = this.opacity * 0.3;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.radius + 2, 0, Math.PI * 2);
         ctx.stroke();
+        
+        ctx.globalAlpha = 1;
     }
 }
 
@@ -87,14 +95,14 @@ function drawConnections() {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < connectionDistance) {
-                const opacity = (1 - distance / connectionDistance) * 0.3;
+                const opacity = (1 - distance / connectionDistance) * 0.4;
                 
-                // Alternar color de línea
-                const lineColor = particles[i].color.includes('201') ? 
-                    'rgba(201, 169, 97' : 'rgba(0, 212, 255';
+                // Color de la línea según el tipo de nodo
+                const lineColor = particles[i].colorType === 'gold' ? '#c9a961' : '#00d4ff';
                 
-                ctx.strokeStyle = lineColor + ', ' + opacity + ')';
-                ctx.lineWidth = 1;
+                ctx.strokeStyle = lineColor;
+                ctx.globalAlpha = opacity;
+                ctx.lineWidth = 0.8;
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
@@ -102,12 +110,13 @@ function drawConnections() {
             }
         }
     }
+    ctx.globalAlpha = 1;
 }
 
 // Loop de animación
 function animate() {
-    // Limpiar canvas con fondo semi-transparente
-    ctx.fillStyle = 'rgba(15, 15, 15, 0.1)';
+    // Limpiar canvas - fondo oscuro semi-transparente
+    ctx.fillStyle = 'rgba(15, 15, 15, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Actualizar y dibujar partículas
