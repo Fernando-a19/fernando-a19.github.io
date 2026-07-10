@@ -5,87 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fernando Mercado - Data Analyst</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <img src="imagenes/perfil.jpg" alt="Fernando Mercado" class="profile-pic">
-        <h1>Fernando Mercado</h1>
-        <p>Data Analyst | Ingeniero Mecatrónico</p>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="profile-section">
+                <img src="imagenes/perfil.jpg" alt="Fernando Mercado" class="profile-pic">
+                <div class="profile-info">
+                    <h1>Fernando Mercado</h1>
+                    <p class="subtitle">Data Analyst & Data Scientist</p>
+                    <p class="role">Ingeniero Mecatrónico | +10 años en análisis de datos</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-accent"></div>
     </header>
 
-    <section id="sobre-mi">
-        <h2>Sobre Mí</h2>
-        <p>Soy Ingeniero en Mecatrónica con certificación en Análisis de Datos, enfocado en transformar datos operativos en información útil para mejorar procesos y apoyar la toma de decisiones. Mi experiencia en entornos industriales me ha permitido desarrollar una visión analítica para identificar oportunidades de mejora mediante el análisis de datos, el diagnóstico de fallas y la optimización de procesos.</p>
-        
-        <p>Me especializo en limpieza y preparación de datos, análisis exploratorio (EDA), visualización de información y storytelling con datos. Trabajo con herramientas como Python, SQL, Pandas, Power BI, Tableau y Excel para convertir información compleja en insights claros, facilitando la identificación de patrones, tendencias y oportunidades de mejora.</p>
-        
-        <p>Estoy interesado en oportunidades como Data Analyst o Business Analyst, así como en conectar con profesionales del área para compartir conocimientos y seguir creciendo profesionalmente.</p>
-    </section>
-
-    <section id="como-lo-hago">
-        <h2>🔧 Cómo lo hago</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Área</th>
-                        <th>Lo que hago</th>
-                        <th>Herramientas</th>
-                        <th>Fortalezas</th>
-                        <th>Enfoque</th>
-                        <th>Objetivo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>📊 Análisis</td>
-                        <td>EDA, limpieza y transformación de datos, insights accionables</td>
-                        <td>Power BI, Excel, SQL, Python, etc.</td>
-                        <td>Diagnóstico de causa raíz; mejora de procesos; pensamiento estructurado</td>
-                        <td>Limpieza y transformación; análisis descriptivo y exploratorio</td>
-                        <td>Optimizar tiempo, costos y calidad</td>
-                    </tr>
-                    <tr>
-                        <td>📈 Visualización</td>
-                        <td>Dashboards y storytelling para decisión</td>
-                        <td>Power BI, Excel, Tableau</td>
-                        <td>Comunicación clara; enfoque a negocio</td>
-                        <td>Visualización; KPIs accionables</td>
-                        <td>Acelerar decisiones</td>
-                    </tr>
-                    <tr>
-                        <td>⚙️ Automatización</td>
-                        <td>Reportes recurrentes y mejoras de proceso</td>
-                        <td>Python, SQL, Excel</td>
-                        <td>Mejora continua; estandarización</td>
-                        <td>Automatización de reportes</td>
-                        <td>Reducir trabajo manual</td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <p>Soy Ingeniero en Mecatrónica con certificación en Análisis de Datos, enfocado en transformar datos operativos en información útil para mejorar procesos y apoyar la toma de decisiones. Mi experiencia en entornos industriales me ha permitido desarrollar una visión analítica para identificar oportunidades de mejora mediante el análisis de datos, el diagnóstico de fallas y la optimización de procesos.</p>
+                
+                <p>Me especializo en limpieza y preparación de datos, análisis exploratorio (EDA), visualización de información y storytelling con datos. Trabajo con herramientas como Python, SQL, Pandas, Power BI, Tableau y Excel para convertir información compleja en insights claros, facilitando la identificación de patrones, tendencias y oportunidades de mejora.</p>
+                
+                <p>Estoy interesado en oportunidades como Data Analyst o Business Analyst, así como en conectar con profesionales del área para compartir conocimientos y seguir creciendo profesionalmente.</p>
+            </div>
         </div>
     </section>
 
-    <section id="proyectos">
-        <h2>Mis Proyectos</h2>
-        
-        <div class="proyecto">
-            <h3>Predicción de Cancelación</h3>
-            <p>Modelo predictivo para Model Fitness.</p>
-            <a href="https://github.com/Fernando-a19">Ver en GitHub</a>
+    <!-- CÓMO LO HAGO -->
+    <section id="como-lo-hago" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">🔧 Cómo lo Hago</h2>
+            <div class="table-container">
+                <table class="skills-table">
+                    <thead>
+                        <tr>
+                            <th>Área</th>
+                            <th>Lo que hago</th>
+                            <th>Herramientas</th>
+                            <th>Fortalezas</th>
+                            <th>Enfoque</th>
+                            <th>Objetivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>📊 Análisis</td>
+                            <td>EDA, limpieza y transformación de datos, insights accionables</td>
+                            <td>Power BI, Excel, SQL, Python</td>
+                            <td>Diagnóstico de causa raíz; mejora de procesos</td>
+                            <td>Limpieza y análisis descriptivo</td>
+                            <td>Optimizar tiempo, costos y calidad</td>
+                        </tr>
+                        <tr>
+                            <td>📈 Visualización</td>
+                            <td>Dashboards y storytelling para decisión</td>
+                            <td>Power BI, Excel, Tableau</td>
+                            <td>Comunicación clara; enfoque a negocio</td>
+                            <td>Visualización; KPIs accionables</td>
+                            <td>Acelerar decisiones</td>
+                        </tr>
+                        <tr>
+                            <td>⚙️ Automatización</td>
+                            <td>Reportes recurrentes y mejoras de proceso</td>
+                            <td>Python, SQL, Excel</td>
+                            <td>Mejora continua; estandarización</td>
+                            <td>Automatización de reportes</td>
+                            <td>Reducir trabajo manual</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <div class="proyecto">
-            <h3>Análisis de Embudo A/B</h3>
-            <p>Prueba estadística de e-commerce.</p>
-            <a href="https://github.com/Fernando-a19">Ver en GitHub</a>
-        </div>
-
     </section>
 
-    <footer>
-        <p>&copy; 2024 Fernando Mercado</p>
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="section">
+        <div class="container">
+            <h2 class="section-title">Mis Proyectos</h2>
+            <div class="projects-grid">
+                
+                <!-- Proyecto 1: Predicción de Cancelación -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="project-icon">📊</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Predicción de Cancelación</h3>
+                        <p class="project-type">Model Fitness</p>
+                        <p class="project-description">Modelo predictivo para segmentación de clientes y análisis de cancelación.</p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/Fernando-a19/model-fitness-churn" class="btn btn-primary" target="_blank">📖 README</a>
+                            <a href="https://github.com/Fernando-a19/model-fitness-churn" class="btn btn-secondary" target="_blank">📓 Notebook</a>
+                            <a href="#" class="btn btn-tertiary" target="_blank">📊 Presentación</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Análisis de Embudo A/A/B -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="project-icon">🎯</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Análisis de Embudo A/A/B</h3>
+                        <p class="project-type">E-commerce</p>
+                        <p class="project-description">Prueba estadística A/A/B del nuevo diseño UX con análisis de conversión.</p>
+                        <div class="project-buttons">
+                            <a href="https://github.com/Fernando-a19/funnel-analysis-aa-ab" class="btn btn-primary" target="_blank">📖 README</a>
+                            <a href="https://github.com/Fernando-a19/funnel-analysis-aa-ab/blob/main/notebooks/sprint12%20proyecto.ipynb" class="btn btn-secondary" target="_blank">📓 Notebook</a>
+                            <a href="https://github.com/Fernando-a19/funnel-analysis-aa-ab/blob/main/documentos/ANALISIS%20DE%20PRODUCTO.pdf" class="btn btn-tertiary" target="_blank">📊 Presentación</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Próximo Proyecto -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="project-icon">🚀</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Próximo Proyecto</h3>
+                        <p class="project-type">En desarrollo</p>
+                        <p class="project-description">Nuevo análisis innovador en progreso. Próximamente disponible.</p>
+                        <div class="project-buttons">
+                            <a href="#" class="btn btn-primary disabled">📖 README</a>
+                            <a href="#" class="btn btn-secondary disabled">📓 Notebook</a>
+                            <a href="#" class="btn btn-tertiary disabled">📊 Presentación</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Fernando Mercado | Data Analyst & Data Scientist</p>
+            <div class="footer-links">
+                <a href="https://github.com/Fernando-a19" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/974406" target="_blank">LinkedIn</a>
+                <a href="mailto:fermer.analyst@gmail.com">Email</a>
+            </div>
+        </div>
     </footer>
 
 </body>
