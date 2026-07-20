@@ -1,5 +1,10 @@
+// Función para abrir GitHub en nueva pestaña
+function openGitHub(url) {
+    window.open(url, '_blank');
+}
+
 // Función para abrir el modal
-function openModal(type, url) {
+function openModal(type, repo) {
     const modal = document.getElementById('contentModal');
     const modalBody = document.getElementById('modalBody');
     
@@ -8,11 +13,13 @@ function openModal(type, url) {
     
     if (type === 'readme') {
         // Cargar README desde GitHub
-        const repoUrl = url.replace('https://github.com/', '').replace('.git', '');
-        const rawUrl = `https://raw.githubusercontent.com/${repoUrl}/main/README.md`;
+        const rawUrl = `https://raw.githubusercontent.com/${repo}/main/README.md`;
         
         fetch(rawUrl)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) throw new Error('No encontrado');
+                return response.text();
+            })
             .then(data => {
                 // Convertir Markdown a HTML simple
                 const htmlContent = markdownToHtml(data);
@@ -22,54 +29,16 @@ function openModal(type, url) {
             .catch(error => {
                 modalBody.innerHTML = `
                     <div style="padding: 20px; text-align: center;">
-                        <p>No se pudo cargar el README.</p>
-                        <a href="${url}" target="_blank" class="btn btn-primary" style="margin-top: 20px;">
-                            Abrir en GitHub
+                        <h3 style="color: var(--accent-blue); margin-bottom: 15px;">📖 README</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">No se pudo cargar el README directamente.</p>
+                        <a href="https://github.com/${repo}" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, var(--accent-blue), #00b8d4); color: #0f0f0f; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 10px;">
+                            Ver en GitHub
                         </a>
                     </div>
                 `;
                 modal.style.display = 'block';
             });
-    } 
-    else if (type === 'notebook') {
-        // Abrir notebook en GitHub o nbviewer
-        const notebookUrl = url.includes('.ipynb') 
-            ? url.replace('github.com', 'nbviewer.jupyter.org')
-            : `${url}/blob/main/notebook.ipynb`;
-        
-        modalBody.innerHTML = `
-            <div style="padding: 20px; text-align: center;">
-                <h2>📓 Notebook</h2>
-                <p>El notebook se abrirá en una nueva pestaña.</p>
-                <a href="${notebookUrl}" target="_blank" class="btn btn-secondary" style="margin-top: 20px; display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, var(--accent-gold), #c9a961); color: #0f0f0f; border-radius: 8px; text-decoration: none; font-weight: 600;">
-                    Abrir Notebook
-                </a>
-                <a href="${url}" target="_blank" class="btn btn-primary" style="margin-top: 20px; display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, var(--accent-blue), #00b8d4); color: #0f0f0f; border-radius: 8px; text-decoration: none; font-weight: 600; margin-left: 10px;">
-                    Ver en GitHub
-                </a>
-            </div>
-        `;
-        modal.style.display = 'block';
     }
-    else if (type === 'presentation') {
-        // Abrir presentación
-        modalBody.innerHTML = `
-            <div style="padding: 20px; text-align: center;">
-                <h2>📊 Presentación</h2>
-                <p>La presentación se abrirá en una nueva pestaña.</p>
-                <a href="${url}" target="_blank" class="btn btn-tertiary" style="margin-top: 20px; display: inline-block; padding: 12px 24px; background: rgba(102, 126, 234, 0.15); color: #667eea; border: 1px solid #667eea; border-radius: 8px; text-decoration: none; font-weight: 600;">
-                    Abrir Presentación
-                </a>
-            </div>
-        `;
-        modal.style.display = 'block';
-    }
-}
-
-// Función para cerrar el modal
-function closeModal() {
-    const modal = document.getElementById('contentModal');
-    modal.style.display = 'none';
 }
 
 // Función simple para convertir Markdown a HTML
@@ -106,6 +75,12 @@ function markdownToHtml(markdown) {
             ${html}
         </div>
     `;
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    const modal = document.getElementById('contentModal');
+    modal.style.display = 'none';
 }
 
 // Cerrar modal al hacer clic fuera de él
