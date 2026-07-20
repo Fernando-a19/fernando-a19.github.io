@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    
     <!-- HEADER CON CANVAS -->
     <header class="header">
         <canvas id="particleCanvas"></canvas>
@@ -101,9 +101,9 @@
                         <p class="project-type">Model Fitness</p>
                         <p class="project-description">Modelo predictivo para segmentación de clientes y análisis de cancelación.</p>
                         <div class="project-buttons">
-                            <a href="https://github.com/Fernando-a19/model-fitness-churn" class="btn btn-primary" target="_blank">📖 README</a>
-                            <a href="https://github.com/Fernando-a19/model-fitness-churn" class="btn btn-secondary" target="_blank">📓 Notebook</a>
-                            <a href="#" class="btn btn-tertiary" target="_blank">📊 Presentación</a>
+                            <button class="btn btn-primary" onclick="openModal('readme', 'https://github.com/Fernando-a19/model-fitness-churn')">📖 README</button>
+                            <button class="btn btn-secondary" onclick="openModal('notebook', 'https://github.com/Fernando-a19/model-fitness-churn')">📓 Notebook</button>
+                            <button class="btn btn-tertiary" onclick="openModal('presentation', '#')">📊 Presentación</button>
                         </div>
                     </div>
                 </div>
@@ -118,26 +118,26 @@
                         <p class="project-type">E-commerce</p>
                         <p class="project-description">Prueba estadística A/A/B del nuevo diseño UX con análisis de conversión.</p>
                         <div class="project-buttons">
-                            <a href="https://github.com/Fernando-a19/funnel-analysis-aa-ab" class="btn btn-primary" target="_blank">📖 README</a>
-                            <a href="https://github.com/Fernando-a19/funnel-analysis-aa-ab/blob/main/notebooks/sprint12%20proyecto.ipynb" class="btn btn-secondary" target="_blank">📓 Notebook</a>
-                            <a href="https://github.com/Fernando-a19/funnel-analysis-aa-ab/blob/main/documentos/ANALISIS%20DE%20PRODUCTO.pdf" class="btn btn-tertiary" target="_blank">📊 Presentación</a>
+                            <button class="btn btn-primary" onclick="openModal('readme', 'https://github.com/Fernando-a19/funnel-analysis-aa-ab')">📖 README</button>
+                            <button class="btn btn-secondary" onclick="openModal('notebook', 'https://github.com/Fernando-a19/funnel-analysis-aa-ab/blob/main/notebooks/sprint12%20proyecto.ipynb')">📓 Notebook</button>
+                            <button class="btn btn-tertiary" onclick="openModal('presentation', 'https://github.com/Fernando-a19/funnel-analysis-aa-ab/blob/main/documentos/ANALISIS%20DE%20PRODUCTO.pdf')">📊 Presentación</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 3: Próximo Proyecto -->
+                <!-- Proyecto 3: Operadores Ineficientes -->
                 <div class="project-card">
                     <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <div class="project-icon">🚀</div>
+                        <div class="project-icon">⚡</div>
                     </div>
                     <div class="project-content">
-                        <h3>Próximo Proyecto</h3>
-                        <p class="project-type">En desarrollo</p>
-                        <p class="project-description">Nuevo análisis innovador en progreso. Próximamente disponible.</p>
+                        <h3>Operadores Ineficientes</h3>
+                        <p class="project-type">Análisis Operacional</p>
+                        <p class="project-description">Identificación y análisis de operadores con baja eficiencia en procesos de producción.</p>
                         <div class="project-buttons">
-                            <a href="#" class="btn btn-primary disabled">📖 README</a>
-                            <a href="#" class="btn btn-secondary disabled">📓 Notebook</a>
-                            <a href="#" class="btn btn-tertiary disabled">📊 Presentación</a>
+                            <button class="btn btn-primary" onclick="openModal('readme', 'https://github.com/Fernando-a19/Operadores-Ineficientes')">📖 README</button>
+                            <button class="btn btn-secondary" onclick="openModal('notebook', 'https://github.com/Fernando-a19/Operadores-Ineficientes')">📓 Notebook</button>
+                            <button class="btn btn-tertiary" onclick="openModal('presentation', 'https://github.com/Fernando-a19/Operadores-Ineficientes')">📊 Presentación</button>
                         </div>
                     </div>
                 </div>
@@ -158,6 +158,15 @@
         </div>
     </footer>
 
+    <!-- MODAL -->
+    <div id="contentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
     <script src="js/particles.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>
